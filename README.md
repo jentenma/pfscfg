@@ -1,2 +1,2 @@
-# pfsimg-cfg
-Configuration rules for pfsimg
+# pfscfg
+Configuration rules for pfs and it's companion pfsimg (aka jimage)
