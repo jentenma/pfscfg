@@ -1,0 +1,36 @@
+
+echo "options = $options"
+
+wwid_list=`lsscsi -w | grep 0x | sort -k3 | awk '{print $(NF-1)}'`
+
+block_devices=()
+
+i=$((node_index_start-1))
+last_index=`echo $wwid_list | wc -w`
+last_index=$((last_index-1))
+my_drives=`seq $i $number_of_nodes $last_index`
+
+#echo $my_drives
+
+j=0
+declare -a wwid_array
+
+for wwid in $wwid_list
+do
+	wwid_array[$j]=$wwid 
+	#echo "** $wwid ${wwid_array[j]}"
+	j=$((j+1))
+done
+
+j=0
+for mi in $my_drives
+do
+	#echo "$mi ${wwid_array[$mi]}"
+	sgdev=`lsscsi -w | grep ${wwid_array[$mi]} | awk '{print $NF}'`
+	block_devices[${j}]=$sgdev
+	j=$((j+1))
+done
+
+echo ${block_devices[*]}
+
+STATUS=$?

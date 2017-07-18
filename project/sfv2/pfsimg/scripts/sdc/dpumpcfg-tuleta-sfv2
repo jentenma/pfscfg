@@ -1,0 +1,2 @@
+		/sbin/modprobe dpump bsize=65536
+		exit 0

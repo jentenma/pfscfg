@@ -1,0 +1,19 @@
+/sbin/ifup mbond
+/sbin/ifup mgt0
+/sbin/ifup mgt1
+/sbin/ifenslave mbond mgt0
+/sbin/ifenslave mbond mgt1
+/sbin/ifdown mbond
+/sbin/ifup mbond
+/sbin/ifup fbond
+/sbin/ifup fab0
+/sbin/ifup fab1
+/sbin/ifup fab2
+/sbin/ifup fab3
+/sbin/ifenslave fbond fab0
+/sbin/ifenslave fbond fab1
+/sbin/ifenslave fbond fab2
+/sbin/ifenslave fbond fab3
+/sbin/ifdown fbond
+/sbin/ifup fbond
+/sbin/ifup lo

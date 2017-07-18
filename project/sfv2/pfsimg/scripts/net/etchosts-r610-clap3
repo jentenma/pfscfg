@@ -1,0 +1,71 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+9.70.207.141  pfs-val-vm-02 pfs-val-vm-02.swg.usma.ibm.com
+9.70.207.139  ts_mfg
+9.74.15.42  node-os-and-upgrade-server.ibm.com
+
+# MODIFIED BY HAND FOR ONLY 1 RACK OF DEVICES!!!
+
+# Sailfish: DO NOT CHANGE THE FOLLOWING ENTRIES!                #
+#   Any changes below this line will be lost on upgrade.        #
+#   Sailfish Network Hosts file <version 1.0>                   #
+#   Reserved internal IP addresses for Mgt and Fabric networks. #
+#                                                               #
+
+# Number of Racks:  8
+
+# --------------------------
+# IP addresses for rack # 1
+# --------------------------
+
+
+# Management Network: 9.0.224.0
+# Management netmask: 255.255.254.0
+
+# FSP Mgt Network: 9.0.231.0
+# FSP Mgt netmask: 255.255.254.0
+
+# Well known Mgt IPs.
+9.0.224.1 master-mgt
+9.0.224.2 external-mgt
+9.0.224.3 service-laptop
+
+# Mgt IPs for FSPs.
+9.0.224.16 fsp0101a fsp0101a-mgt 
+9.0.224.17 fsp0102a fsp0102a-mgt 
+9.0.224.18 fsp0103a fsp0103a-mgt 
+
+# Mgt IPs for Linux nodes.
+9.0.224.23 node0101 node0101-mgt node0101.apdomain.ibm.com  
+9.0.224.24 node0102 node0102-mgt node0102.apdomain.ibm.com  
+9.0.224.25 node0103 node0103-mgt node0103.apdomain.ibm.com  
+
+# Mgt IPs for Remote Power Controllers.
+9.0.224.30 rpc0101 rpc0101-mgt 
+9.0.224.31 rpc0102 rpc0102-mgt 
+
+# Mgt IPs of Fabric Leaf Switches.
+9.0.224.34 fabsw01a fabsw01a-mgt
+
+# In-band Mgt IP for each Mgt switch.
+9.0.224.48 mgtsw01a mgtsw01a-mgt
+
+# Mgt IP of terminal servers.
+9.0.224.50 ts01 ts01-mgt 
+
+#
+# Fabric Network: 9.0.226.0
+# Fabric netmask: 255.255.254.0
+
+# Well known Fabric IPs.
+9.0.226.1 ha-master master
+
+# Fabric IPs for Linux nodes.
+#   note: fab0 and fab1 hostnames are for dual dhcpd leases to support HA booting.
+9.0.226.16 node0101-fab node0101-fab.apdomain.ibm.com  node0101-fab0 node0101-fab0.apdomain.ibm.com  node0101-fab1 node0101-fab1.apdomain.ibm.com 
+9.0.226.17 node0102-fab node0102-fab.apdomain.ibm.com  node0102-fab0 node0102-fab0.apdomain.ibm.com  node0102-fab1 node0102-fab1.apdomain.ibm.com 
+9.0.226.18 node0103-fab node0103-fab.apdomain.ibm.com  node0103-fab0 node0103-fab0.apdomain.ibm.com  node0103-fab1 node0103-fab1.apdomain.ibm.com 
+
+# Fabric Switch Inband IPs.
+9.0.226.23 fabsw01a-fab 
+

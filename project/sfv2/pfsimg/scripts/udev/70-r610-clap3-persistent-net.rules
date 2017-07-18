@@ -1,0 +1,22 @@
+########################################################
+#
+# r610 clap3 server interfaces:
+#   2 x 1G,  mgt0 and eth0, Broadcom LOM
+#   2 x 40G, fab0 and fab1, Mellanox CX3  
+#   
+########################################################
+
+# Broadcom LOM.  2 x 1 GbE.  mgt0, and eth0  
+#
+# 
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0000:01:00.0", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0000:01:00.1", NAME="eth0"
+
+#
+# Mellanox CX3-Pro NICs.  2 x 40 GbE Fabric interfaces on 1 Mellanox NICs.
+#   Vendor=Mellanox(0x15b3)
+#   BOTH interfaceS on each card used for internal fabric 40G (fab0 and fab1)
+#  0002:01:00.0 Ethernet controller: Mellanox Technologies MT27520 Family [ConnectX-3 Pro]
+#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0000:05:00.0", ATTR{dev_port}=="0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0000:05:00.0", ATTR{dev_port}=="1", NAME="fab1"

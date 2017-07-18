@@ -1,0 +1,2 @@
+/sbin/ifup mgt0
+/sbin/ifup lo

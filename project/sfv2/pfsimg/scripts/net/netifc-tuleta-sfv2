@@ -1,0 +1,9 @@
+	    /sbin/modprobe bonding mode=4 xmit_hash_policy=2
+	    echo +fbond > /sys/class/net/bonding_masters
+	    mgtbond=`cat /etc/hosts | grep $hostname-mgt | awk '{print $1}'`
+	    fabbond=`cat /etc/hosts | grep $hostname-fab | awk '{print $1}'`
+	    echo +mbond >> /sys/class/net/bonding_masters
+	    cat /etc/network/interfaces | sed -e "s/INSERT_MGTBOND_IP_ADDRESS/$mgtbond/g; \
+                                                  s/INSERT_GATEWAY_IP_ADDRESS/$gateway/g; \
+                                                  s/INSERT_FABBOND_IP_ADDRESS/$fabbond/g" > /tmp/interfaces; \
+                                                  cp /tmp/interfaces /etc/network/interfaces;rm /tmp/interfaces

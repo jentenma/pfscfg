@@ -1,0 +1,26 @@
+	#hostname=`cat /proc/cmdline | tr " " "\n" | grep hostname | tr "=" " " | awk '{print $2}'`
+	hostname=`hostname`
+
+	#
+	# This assumes the hostname is in the form node0101, the total number of nodes
+	# either 3 or 7 per rack
+	#
+	rack=`echo $hostname | cut -c5-6`
+	rack=`echo $((10#${rack}))`
+
+	node=`echo $hostname | cut -c7-8`
+	node=`echo $((10#${node}))`
+
+	echo "rack: $rack" >> $pfsetcdir/diag.conf
+	echo "node: $node" >> $pfsetcdir/diag.conf
+
+        # 3452-DB1)
+                echo "totalnodes: 3" >> $pfsetcdir/diag.conf
+                echo "nodesperrack: 3" >> $pfsetcdir/diag.conf
+                echo "increment: 3" >> $pfsetcdir/diag.conf
+                echo "increment: 3" >> $pfsetcdir/sdc.conf
+                myindex=$((node*rack+((rack-1)*6)))
+                echo "myindex: $myindex" >> $pfsetcdir/diag.conf
+                echo "myindex: $myindex" >> $pfsetcdir/sdc.conf
+                hoststorage=`lscsi | grep disk | grep IPR-10 | awk '{printf "%s ", $NF}'`
+                echo "hoststorage: $hoststorage" >> $pfsetcdir/sdc.conf
