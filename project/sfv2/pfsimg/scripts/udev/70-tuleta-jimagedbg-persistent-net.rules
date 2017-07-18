@@ -1,11 +1,9 @@
-#
-# Udev rules Tuleta sailfishv2 nodes
-# file: /etc/udev/rules.d/70-sailfishv2-tuleta-persistent-net.rules
+# Udev rules Tuleta sfv2 nodes
 #
 
 ########################################################
 #
-# Sailfish V2 Tuleta server interfaces:
+# sfv2 Tuleta server interfaces:
 #   4 x 1G:  mgt0/mgt1/eth0/eth1 on two BDCM NetXtreme II BCM57800 1/10 GbE
 #   4 x 10G: fab0/fab1/fab2/fab3 on two BDCM NetXtreme II BCM57800 1/10 GbE
 #   6 x 16G FC: host1..host6     on three Emulex Lancer-X: LightPulse FC 

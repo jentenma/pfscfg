@@ -6,9 +6,9 @@
 
 # MODIFIED BY HAND FOR ONLY 1 RACK OF DEVICES!!!
 
-# Sailfish: DO NOT CHANGE THE FOLLOWING ENTRIES!                #
+# sfv2: DO NOT CHANGE THE FOLLOWING ENTRIES!                #
 #   Any changes below this line will be lost on upgrade.        #
-#   Sailfish Network Hosts file <version 1.0>                   #
+#   sfv2 Network Hosts file <version 1.0>                   #
 #   Reserved internal IP addresses for Mgt and Fabric networks. #
 #                                                               #
 
@@ -733,4 +733,4 @@
 9.0.226.78 start-reserved-dhcp-fab
 9.0.226.133 end-reserved-dhcp-fab
 
-# Sailfish: END reserved internal IP addresses.
+# sfv2: END reserved internal IP addresses.
