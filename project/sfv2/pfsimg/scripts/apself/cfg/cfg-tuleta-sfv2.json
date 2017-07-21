@@ -1,0 +1,12 @@
+{
+    "interfaces": {
+        "net00": "mgt0",
+        "net01": "mgt1",
+        "net02": "mbond",
+        "net03": "fab0",
+        "net04": "fab1",
+        "net05": "fab2",
+        "net06": "fab3",
+        "net07": "fbond"
+    }
+}
