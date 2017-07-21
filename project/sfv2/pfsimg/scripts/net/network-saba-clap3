@@ -1,9 +1,0 @@
-/sbin/ifup fbond
-/sbin/ifup fab0
-/sbin/ifup fab1
-/sbin/ifenslave fbond fab0
-/sbin/ifenslave fbond fab1
-/sbin/ifdown fbond
-/sbin/ifup fbond
-/sbin/ifup mgt0
-/sbin/ifup lo
