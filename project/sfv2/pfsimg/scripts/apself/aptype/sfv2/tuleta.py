@@ -27,9 +27,22 @@ class SelfTest(selftest.SelfTestBase):
     def __str__(self):
         return "Server Config is %s" % (self.svrcfg,)
 
-    def testMemory(self,system):
-        self.logger.info('XtestMemory')        
-        return 0
+
+    # Board Mfg Date        : Mon Jan  1 00:00:00 1996
+    # Board Product         : IBM 32GB MS
+    # Board Serial          : YH10MS568030
+    # Board Part Number     : 00LP736
+    # Product Manufacturer  : IBM
+    # Product Name          : IBM 32GB MS
+    # Product Part Number   : 00LP736
+    # Product Serial        : YL100057200V
+       
+    def testMemoryCount(self,system):
+        self.logger.info('testMemoryCount')
+        pp = pprint.PrettyPrinter(indent=4)        
+
+        return self.stc.testMemoryCountDeviceTree(system)
+        
 
 
 

@@ -48,8 +48,8 @@ class SelfTestBase(object):
         self.logger.info('testNetwork')        
         return 0
 
-    def testMemory(self,system):
-        self.logger.info('testMemory')        
+    def testMemoryCount(self,system):
+        self.logger.info('testMemoryCount')        
         return 0
 
     def testCpu(self,system):
