@@ -1,0 +1,20 @@
+{
+    "interfaces": {
+        "net00": "mgt0",
+        "net01": "mgt1",
+        "net02": "mbond",
+        "net03": "fab0",
+        "net04": "fab1",
+        "net05": "fab2",
+        "net06": "fab3",
+        "net07": "fbond"
+    },
+    "meminfo" : {
+        "fru_ids": ["9","10","11", "12","13","14","15","16",
+                    "17","18","19","20","21","22","23","24"],
+        "mfg_list": ["IBM"],
+        "mfg_info": { 
+            "IBM": { "IBM 32GB MS": { "pn":"00LP736","version":"na" }}
+        }
+    }
+}
