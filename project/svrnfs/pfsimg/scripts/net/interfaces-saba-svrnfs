@@ -11,12 +11,22 @@ iface lo inet loopback
 # Management port
 #
 auto mgt0
-iface mgt0 inet dhcp
-
+iface mgt0 inet static
+    address INSERT_MGT_IP_ADDRESS
+    netmask 255.255.254.0
+    gateway INSERT_GATEWAY_IP_ADDRESS
 #
 # House Network (keep DHCP)
 #
-auto eth0
-iface eth0 inet dhcp
+#auto eth0
+#iface eth0 inet dhcp
 
+auto fab0
+iface fab0 inet static
+    address INSERT_FAB0_IP_ADDRESS
+    netmask 255.255.254.0
 
+auto fab1
+iface fab1 inet static
+    address INSERT_FAB1_IP_ADDRESS
+    netmask 255.255.254.0

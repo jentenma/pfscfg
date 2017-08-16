@@ -1,8 +1,8 @@
 	    mgt=`cat /etc/hosts | grep $hostname-mgt | awk '{print $1}'`
-	    fabbond=`cat /etc/hosts | grep $hostname-fab | awk '{print $1}'`
-	    /sbin/modprobe bonding mode=4 xmit_hash_policy=2
-	    echo +fbond > /sys/class/net/bonding_masters
+	    fab0=`cat /etc/hosts | grep $hostname-fab0 | awk '{print $1}'`
+	    fab1=`cat /etc/hosts | grep $hostname-fab1 | awk '{print $1}'`
 	    cat /etc/network/interfaces | sed -e "s/INSERT_MGT_IP_ADDRESS/$mgt/g; \
                                                   s/INSERT_GATEWAY_IP_ADDRESS/$gateway/g; \
-                                                  s/INSERT_FABBOND_IP_ADDRESS/$fabbond/g" > /tmp/interfaces; \
+                                                  s/INSERT_FAB0_IP_ADDRESS/$fab0/g; \
+                                                  s/INSERT_FAB1_IP_ADDRESS/$fab1/g" > /tmp/interfaces; \
                                                   cp /tmp/interfaces /etc/network/interfaces;rm /tmp/interfaces

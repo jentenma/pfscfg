@@ -109,6 +109,15 @@
 9.0.226.21 node0106-fab node0106-fab.apdomain.ibm.com  node0106-fab0 node0106-fab0.apdomain.ibm.com  node0106-fab1 node0106-fab1.apdomain.ibm.com 
 9.0.226.22 node0107-fab node0107-fab.apdomain.ibm.com  node0107-fab0 node0107-fab0.apdomain.ibm.com  node0107-fab1 node0107-fab1.apdomain.ibm.com 
 
+9.0.226.144 node0101-fab0
+9.0.226.145 node0101-fab1
+
+9.0.226.146 node0102-fab0
+9.0.226.147 node0102-fab1
+
+9.0.226.148 node0103-fab0
+9.0.226.149 node0103-fab1
+
 # Fabric Switch Inband IPs.
 9.0.226.23 fabsw01a-fab 
 9.0.226.24 fabsw01b-fab 
