@@ -16,12 +16,24 @@
 	echo "node: $node" >> $pfsetcdir/diag.conf
 
         # 1234-SC3)
-                echo "totalnodes: 3" >> $pfsetcdir/diag.conf
-                echo "nodesperrack: 3" >> $pfsetcdir/diag.conf
-                echo "increment: 1" >> $pfsetcdir/diag.conf
-                echo "increment: 1" >> $pfsetcdir/sdc.conf
-                myindex=1
-                echo "myindex: $myindex" >> $pfsetcdir/diag.conf
-                echo "myindex: $myindex" >> $pfsetcdir/sdc.conf
-                hoststorage="na"
-                echo "hoststorage: $hoststorage" >> $pfsetcdir/sdc.conf
+
+        echo "totalnodes: 3" >> $pfsetcdir/diag.conf
+        echo "nodesperrack: 3" >> $pfsetcdir/diag.conf
+        echo "increment: 1" >> $pfsetcdir/diag.conf
+        echo "increment: 1" >> $pfsetcdir/sdc.conf
+        myindex=1
+        echo "myindex: $myindex" >> $pfsetcdir/diag.conf
+        echo "myindex: $myindex" >> $pfsetcdir/sdc.conf
+        hoststorage="na"
+        echo "hoststorage: $hoststorage" >> $pfsetcdir/sdc.conf
+
+	basename=`hostname | cut -c1-4`
+
+	nodelist="${basename}0101 ${basename}0102 ${basename}0103"
+	echo "nodelist: $nodelist" >> $pfsetcdir/diag.conf
+	echo "nodelist: $nodelist" >> $pfsetcdir/sdc.conf
+	basename=`hostname | cut -c1-4`
+
+	nodelist="${basename}0101 ${basename}0102 ${basename}0103"
+	echo "nodelist: $nodelist" >> $pfsetcdir/diag.conf
+	echo "nodelist: $nodelist" >> $pfsetcdir/sdc.conf

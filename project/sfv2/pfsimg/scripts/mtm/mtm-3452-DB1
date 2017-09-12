@@ -24,3 +24,9 @@
                 echo "myindex: $myindex" >> $pfsetcdir/sdc.conf
                 hoststorage=`lscsi | grep disk | grep IPR-10 | awk '{printf "%s ", $NF}'`
                 echo "hoststorage: $hoststorage" >> $pfsetcdir/sdc.conf
+
+	basename=`hostname | cut -c1-4`
+
+	nodelist="${basename}0101 ${basename}0102 ${basename}0103"
+	echo "nodelist: $nodelist" >> $pfsetcdir/diag.conf
+	echo "nodelist: $nodelist" >> $pfsetcdir/sdc.conf
