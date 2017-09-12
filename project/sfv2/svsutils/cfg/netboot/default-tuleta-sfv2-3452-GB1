@@ -1,0 +1,20 @@
+DEFAULT pfsimg
+PROMPT 0
+MENU TITLE Cobbler | http://cobbler.github.io/
+TIMEOUT 3
+TOTALTIMEOUT 6
+ONTIMEOUT pfsimg
+
+LABEL local
+        MENU LABEL (local)
+        MENU DEFAULT
+        LOCALBOOT -1
+
+LABEL pfsimg
+        kernel /images/pfsimg/vmlinux
+        MENU LABEL pfsimg
+        append initrd=/images/pfsimg/initramfs_data.cpio.xz ksdevice=bootif svrtype=tuleta pclient=bmcinfo console=hvc0 console=hvc1 lang=  text hostname=bmcinfo serverip=9.0.224.2 mtm=3452-GB1 nfshost=9.0.224.2 svrcfg=sfv2 apself=yes nfsmd=/opt/ibm/pfs/export root=/dev/rd/o kssendmac  ks=http://9.0.224.2/cblr/svc/op/ks/profile/pfsimg
+        ipappend 2
+
+
+MENU end

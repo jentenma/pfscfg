@@ -1,0 +1,123 @@
+#
+# Udev rules for RHEL7-based sfv2 servers
+# file: /etc/udev/rules.d/70-persistent-net.rules
+#
+
+#
+# This file supports following servers:
+#    sfv2 V2 Tuleta
+#
+# This one file can support multiple systems since the NICs and PCI slots
+# do not have any overlap or conflicts.
+#
+
+########################################################
+#
+# sfv2 Tuleta server interfaces:
+#   4 x 1G:  mgt0/mgt1/eth0/eth1 on two BDCM NetXtreme II BCM57800 1/10 GbE
+#   4 x 10G: fab0/fab1/fab2/fab3 on two BDCM NetXtreme II BCM57800 1/10 GbE
+#   6 x 16G FC: host1..host6     on three Emulex Lancer-X: LightPulse FC 
+#   
+########################################################
+
+#
+# Ethernet NIC - 2x10G + 2x1G
+#
+# 0002:01:00.0 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.1 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.1", NAME="fab2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.2", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.3", NAME="eth0"
+
+#
+# Ethernet NIC - 2x10G + 2x1G
+#
+# 0004:01:00.0 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.1 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.0", NAME="fab1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.1", NAME="fab3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.2", NAME="mgt1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.3", NAME="eth1"
+
+#
+# 3 FC NICs - 2x16G FC each
+# 
+# 0000:01:00.0 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+# 0000:01:00.1 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+# 0005:01:00.0 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+# 0005:01:00.1 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+# 0006:01:00.0 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+# 0006:01:00.1 Fibre Channel: Emulex Corporation Lancer-X: LightPulse Fibre Channel Host Adapter (rev 30)
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0000:01:00.0", NAME="host1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0000:01:00.1", NAME="host3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0005:01:00.0", NAME="host2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0005:01:00.1", NAME="host4"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0006:01:00.1", NAME="host5"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0006:01:00.1", NAME="host6"
+
+########################################################
+#
+# sfv11 Saba server interfaces:
+#   2 x 1G,  mgt0 and eth0, Broadcom LOM
+#   2 x 40G, fab0 and fab1, Mellanox CX3  
+#   2 x 10G, eth1 and eth2, Mellanox CX3
+#   2 x 8G FC, hba0 and hba1, Emulex
+#   
+########################################################
+
+# Broadcom LOM.  2 x 1 GbE.  mgt0, and eth0  
+#
+#  0004:0a:00.0 Ethernet controller: Broadcom Corporation NetXtreme BCM5717 Gigabit Ethernet PCIe (rev 20)
+#  0004:0a:00.1 Ethernet controller: Broadcom Corporation NetXtreme BCM5717 Gigabit Ethernet PCIe (rev 20)
+# 
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:0a:00.0", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:0a:00.1", NAME="eth0"
+
+#
+# Mellanox CX3-Pro NICs.  4 x 40 GbE Fabric interfaces on 2 Mellanox NICs.
+#   Vendor=Mellanox(0x15b3)
+#   First interface on each card used for internal fabric 40G (fab0 and fab1)
+#   Second interface on each card used for customer 10G connectivity (eth1 and eth2)
+# 
+#  0001:01:00.0 Ethernet controller: Mellanox Technologies MT27520 Family [ConnectX-3 Pro]
+#  0002:01:00.0 Ethernet controller: Mellanox Technologies MT27520 Family [ConnectX-3 Pro]
+#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0001:01:00.0", ATTR{dev_port}=="0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0001:01:00.0", ATTR{dev_port}=="1", NAME="eth1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0002:01:00.0", ATTR{dev_port}=="0", NAME="fab1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0002:01:00.0", ATTR{dev_port}=="1", NAME="eth2"
+
+########################################################
+#
+# sfv1 Tuleta server interfaces:
+#   4 x 1G  - mgt0, eth0, eth3, and eth3 - Broadcom LOM
+#   2 x 40G - fab0 and fab1, Mellanox CX3  
+#   2 x 10G - eth2 and eth3, Mellanox CX3
+# 
+########################################################
+
+# Tuleta: 4 x 1G Management interfaces on 4 Broadcom LOMs.
+#   Vendor=Broadcom(14e4), card type=NetXtreme BCM5719(1657)
+#   
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="tg3", ATTRS{vendor}=="0x14e4", ATTRS{device}=="0x1657", KERNELS=="*:00.0", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="tg3", ATTRS{vendor}=="0x14e4", ATTRS{device}=="0x1657", KERNELS=="*:00.1", NAME="eth0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="tg3", ATTRS{vendor}=="0x14e4", ATTRS{device}=="0x1657", KERNELS=="*:00.2", NAME="eth3"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="tg3", ATTRS{vendor}=="0x14e4", ATTRS{device}=="0x1657", KERNELS=="*:00.3", NAME="eth4"
+
+
+#   Tuleta: Mellanox CX3's PCIs at ("0004:01:00" or "0005:01:00") and "0006:01:00"
+#
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0004:01:00.0", ATTR{dev_port}=="0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0004:01:00.0", ATTR{dev_port}=="1", NAME="eth1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0005:01:00.0", ATTR{dev_port}=="0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0005:01:00.0", ATTR{dev_port}=="1", NAME="eth1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0006:01:00.0", ATTR{dev_port}=="0", NAME="fab1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="mlx4_core", ATTRS{vendor}=="0x15b3", KERNELS=="0006:01:00.0", ATTR{dev_port}=="1", NAME="eth2"
