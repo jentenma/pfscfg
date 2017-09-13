@@ -13,7 +13,7 @@ LABEL local
 LABEL pfsimg
         kernel /images/pfsimg/vmlinux
         MENU LABEL pfsimg
-        append initrd=/images/pfsimg/initramfs_data.cpio.xz ksdevice=bootif svrtype=saba pclient=bmcinfo console=hvc0 console=hvc1 lang=  text hostname=bmcinfo serverip=9.0.224.2 mtm=1234-SC3 nfshost=9.0.224.2 svrcfg=clap3 apself=yes nfsmd=/opt/ibm/pfs/export root=/dev/rd/o kssendmac  ks=http://9.0.224.2/cblr/svc/op/ks/profile/pfsimg
+        append initrd=/images/pfsimg/initramfs_data.cpio.xz ksdevice=bootif svrtype=saba pclient=bmcinfo console=hvc0 console=hvc1 lang=  text hostname=bmcinfo serverip=9.0.224.2 mtm=1235-SNF nfshost=9.0.224.2 svrcfg=svrnfs nfsmd=/opt/ibm/pfs/export root=/dev/rd/o kssendmac  ks=http://9.0.224.2/cblr/svc/op/ks/profile/pfsimg
         ipappend 2
 
 

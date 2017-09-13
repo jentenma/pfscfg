@@ -1,6 +1,6 @@
 {
-	"version":     "1",
-	"prvsnr":      "pdebug",
+	"version":     1,
+	"prvsnr":      "cobbler",
 	"bmc":         "ipmi",
 	"fencing":     "pfs",
         "pfs_dir":     "/opt/ibm/appliance/platform/services",
@@ -12,27 +12,46 @@
         "debug_logging_dir": "/var/log/appliance/platform/svsutils",
 	"arch":	       "ppc64le",
 	"pxe_dir":     "/var/lib/tftpboot/pxelinux.cfg",
-	"image_dir":   "/var/lib/tftpboot/images",
-        "svrtype":     "saba",
-        "svrcfg":      "clap3",
-        "mtm":      "1234-SC3",
+        "svrtype":     "tuleta",
+        "svrcfg":      "jimagedbg",
+        "mtm":         "1236-JDB",
+        "webdir":      "/var/www/images",
 	"handle":      null,
 	"options": 
 	{
 		"cobbler": 
 		{
 			"pwrcmds": false,
-			"logging_dir": "/var/log/cobbler"
-    	        },
-		"pfs": 
-		{
-			"pwrcmds": false,
-			"logging_dir": "/var/log/pfs"
-    	        },
-		"pdebug": 
-		{
-			"pwrcmds": false,
-			"logging_dir": "/var/log/pfs"
+			"logging_dir": "/var/log/cobbler",
+			"system_fence": "ipmilan",
+			"os_img" :
+			{
+				"profile": "rhel-7.3-serverle-ppc64le",
+				"ksfile": "na",
+			        "x86_64" :
+			        {
+			            "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+			            "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+                                },
+			       "ppc64": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+			       },		
+			       "ppc64le": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+
+			       },		
+			       "aarch64": 
+			       {
+				   "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+				   "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+
+			       }		
+
+			}
     	        },
 		"ossleep": 5,
 		"osretry": 240,
@@ -65,7 +84,7 @@
 		{
 			"kernel": "/home/cobbler/staging/pfs-pxe-ppc64le/vmlinux",
 			"initrd": "/home/cobbler/staging/pfs-pxe-ppc64le/initramfs_data.cpio.xz",
-			"kopts": "apself=yes console=hvc0 console=hvc1",
+			"kopts": "console=hvc0 console=hvc1",
 			"ksfile": "/var/lib/cobbler/kickstarts/pfs.ks"
 		},		
 		"aarch64": 
@@ -82,14 +101,6 @@
 		"imm": false,
 		"drac": false
 	},
-	"mtminfo":
-	{
-		"3452-DB1": {"numnodes": "3", "increment" : "3"},
-		"3452-FB1": {"numnodes": "5", "increment" : "5"},
-		"3452-GB1": {"numnodes": "7", "increment" : "7"},
-		"1234-SC3": {"numnodes": "3", "increment" : "1"},
-		"1234-RC3": {"numnodes": "3", "increment" : "1"}
-	},
 	"supported_fencing":
 	{
 		"pfs": true,
@@ -100,8 +111,10 @@
 	"supported_provisioners":
 	{
 		"cobbler": true,
-		"pfs": true,
-		"pdebug": true
+		"foreman": false,
+		"maas": false,
+	        "xcat": false,
+	        "rudder": false
 	}
 }
 

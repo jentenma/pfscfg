@@ -1,11 +1,11 @@
 {
 	"version":     "1",
-	"prvsnr":      "pfs",
+	"prvsnr":      "pdebug",
 	"bmc":         "ipmi",
 	"fencing":     "pfs",
         "pfs_dir":     "/opt/ibm/appliance/platform/services",
-        "pfs_info_cmd": "sys_hw_info --get-diag-info",
-        "pfs_info_cmd_debug": "pfs-node-info.sh",
+        "pfs_info_cmd_for_real": "sys_hw_info --get-diag-info",
+        "pfs_info_cmd": "pfs-node-info.sh",
         "pfs_pxe_dir": "/opt/ibm/pfs/pxe_dir",
         "pfs_nfs_dir": "/opt/ibm/pfs/export",
         "logging_dir": "/var/log/appliance/platform/svsutils",
@@ -14,8 +14,8 @@
 	"pxe_dir":     "/var/lib/tftpboot/pxelinux.cfg",
 	"image_dir":   "/var/lib/tftpboot/images",
         "svrtype":     "tuleta",
-        "svrcfg":      "sfv2",
-        "mtm":      "3452-FB1",
+        "svrcfg":      "jimagedbg",
+        "mtm":         "1236-JDB",
 	"handle":      null,
 	"options": 
 	{
@@ -81,6 +81,14 @@
 		"ipmi": true,
 		"imm": false,
 		"drac": false
+	},
+	"mtminfo":
+	{
+		"3452-DB1": {"numnodes": "3", "increment" : "3"},
+		"3452-FB1": {"numnodes": "5", "increment" : "5"},
+		"3452-GB1": {"numnodes": "7", "increment" : "7"},
+		"1234-SC3": {"numnodes": "3", "increment" : "1"},
+		"1234-RC3": {"numnodes": "3", "increment" : "1"}
 	},
 	"supported_fencing":
 	{

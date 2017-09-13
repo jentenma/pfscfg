@@ -29,7 +29,30 @@
 			"os_img" :
 			{
 				"profile": "rhel-7.3-serverle-ppc64le",
-				"ksfile": "na"
+				"ksfile": "na",
+			        "x86_64" :
+			        {
+			            "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+			            "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+                                },
+			       "ppc64": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+			       },		
+			       "ppc64le": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+
+			       },		
+			       "aarch64": 
+			       {
+				   "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+				   "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+
+			       }		
+
 			}
     	        },
 		"pfs": 

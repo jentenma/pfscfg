@@ -13,6 +13,7 @@ prvsn_export_dir: "/home/backup"
 # See httpd.conf DocumentRoot 
 # Example: prvsn_webdir: "/var/www/images/prvsn-files"
 # cat /etc/httpd/conf/httpd.conf | grep ^DocumentRoot | sed 's/\"//g" | awk '{print $2}'
+
 prvsn_webdir: "DOCUMENTROOT_GOES_HERE/prvsn-files"
 
 #END-svsutils-variables

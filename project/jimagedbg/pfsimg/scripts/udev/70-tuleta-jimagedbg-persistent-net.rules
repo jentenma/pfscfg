@@ -1,0 +1,38 @@
+# Udev rules Tuleta sfv2 nodes
+#
+
+########################################################
+#
+# sfv2 Tuleta server interfaces:
+#   4 x 1G:  mgt0/mgt1/eth0/eth1 on two BDCM NetXtreme II BCM57800 1/10 GbE
+#   4 x 10G: fab0/fab1/fab2/fab3 on two BDCM NetXtreme II BCM57800 1/10 GbE
+#   6 x 16G FC: host1..host6     on three Emulex Lancer-X: LightPulse FC 
+#   
+########################################################
+
+#
+# Ethernet NIC - 2x10G + 2x1G
+#
+# 0002:01:00.0 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.1 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0002:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.1", NAME="fab2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.2", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.3", NAME="eth0"
+
+#
+# Ethernet NIC - 2x10G + 2x1G
+#
+# 0004:01:00.0 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.1 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+# 0004:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.0", NAME="fab1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.1", NAME="fab3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.2", NAME="mgt1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.3", NAME="eth1"
+
