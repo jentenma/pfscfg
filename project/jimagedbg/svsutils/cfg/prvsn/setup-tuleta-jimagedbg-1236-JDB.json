@@ -23,6 +23,7 @@
 		{
 			"pwrcmds": false,
 			"logging_dir": "/var/log/cobbler",
+		        "kickstart_dir": "/var/lib/cobbler/kickstarts",
 			"system_fence": "ipmilan",
 			"os_img" :
 			{
