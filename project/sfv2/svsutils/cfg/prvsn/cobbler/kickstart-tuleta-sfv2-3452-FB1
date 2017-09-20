@@ -58,6 +58,21 @@ nfs-utils
 net-tools
 lsof
 iperf
+autoconf
+automake
+binutils
+bison
+flex
+gcc
+gcc-c++
+gettext
+libtool
+make
+patch
+pkgconfig
+redhat-rpm-config
+rpm-build
+rpm-sign
 %end
 
 %post --nochroot
@@ -67,18 +82,24 @@ $SNIPPET('log_ks_post_nochroot')
 %post
 $SNIPPET('log_ks_post')
 #show selinux level
+mkdir /root/mlnx
+curl "http://$server/prvsn-files/mlnx-en-4.1-1.0.2.0-rhel7.3-ppc64le.tar" -o /root/mlnx/mlnx-en-4.1-1.0.2.0-rhel7.3-ppc64le.tar
+curl "http://$server/prvsn-files/firstboot.sh" -o /root/firstboot.sh
+curl "http://$server/prvsn-files/70-persistent-net.rules" -o /etc/udev/rules.d/70-persistent-net.rules
+curl "http://$server/prvsn-files/hosts" -o /etc/hosts
+echo "@reboot root /bin/bash /root/firstboot.sh" >> /etc/crontab
 /sbin/getenforce
 # start enable NFS server
-echo "prvsn_export_dir = $prvsn_export_dir"
-echo "prvsn_path = $prvsn_path"
-/bin/systemctl enable nfs-server
-/bin/systemctl enable rpcbind
-/bin/systemctl enable nfs-lock
-/bin/systemctl enable nfs-idmap
-/usr/bin/echo '$prvsn_export_dir *(rw,sync,no_root_squash,no_all_squash)' >> /etc/exports
-/usr/bin/mkdir $prvsn_export_dir
-chmod 777 $prvsn_export_dir
-/usr/sbin/exportfs -r
+#echo "prvsn_export_dir = $prvsn_export_dir"
+#echo "prvsn_path = $prvsn_path"
+#/bin/systemctl enable nfs-server
+#/bin/systemctl enable rpcbind
+#/bin/systemctl enable nfs-lock
+#/bin/systemctl enable nfs-idmap
+#/usr/bin/echo '$prvsn_export_dir *(rw,sync,no_root_squash,no_all_squash)' >> /etc/exports
+#/usr/bin/mkdir $prvsn_export_dir
+#chmod 777 $prvsn_export_dir
+#/usr/sbin/exportfs -r
 # End enable NFS server
 # Start yum configuration
 $yum_config_stanza

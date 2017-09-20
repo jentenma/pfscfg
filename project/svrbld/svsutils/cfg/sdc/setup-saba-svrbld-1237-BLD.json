@@ -14,8 +14,9 @@
 	"pxe_dir":     "/var/lib/tftpboot/pxelinux.cfg",
 	"image_dir":   "/var/lib/tftpboot/images",
         "svrtype":     "saba",
-        "svrcfg":      "svrnfs",
-        "mtm":      "1235-SNF",
+        "svrcfg":      "svrbld",
+        "mtm":      "1237-BLD",
+        "webdir":      "/var/www/html",
 	"handle":      null,
 	"options": 
 	{

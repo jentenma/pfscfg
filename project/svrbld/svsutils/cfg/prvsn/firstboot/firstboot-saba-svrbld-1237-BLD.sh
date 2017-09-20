@@ -11,6 +11,14 @@ echo "Updating Mellanox Driver" >> /var/log/firstboot
 mlogs=`ls /tmp/mlnx*`
 echo "Mellanox logs are in $mlogs" >> /var/log/firstboot
 
+#!/bin/bash
+
+#
+# Install latest Mellanox
+#
+echo "Updating Mellanox Driver" >> /var/log/firstboot
+#/bin/cd /root/mlnx
+
 fabname=`hostname`-fab
 fabip=`cat /etc/hosts | grep $fabname | awk '{print $1}'`
 
@@ -39,7 +47,7 @@ EOF
 echo "Done Configuring mgt0 interface" >> /var/log/firstboot
 
 # 9.0.226.133 end-reserved-address
-# This needs to be changed manually to a house drop
+# This needs to be changed manually to a house drop 
 echo "Configuring eth0 interface" >> /var/log/firstboot
 cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
 TYPE="Ethernet"

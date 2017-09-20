@@ -3,7 +3,7 @@
 	"prvsnr":      "cobbler",
 	"bmc":         "ipmi",
 	"fencing":     "pfs",
-        "pfs_dir":     "/opt/ibm/pfs",
+        "pfs_dir":     "/opt/ibm/appliance/platform/services",
         "pfs_info_cmd_for_real": "sys_hw_info --get-diag-info",
         "pfs_info_cmd": "pfs-node-info.sh",
         "pfs_pxe_dir": "/opt/ibm/pfs/pxe_dir",
@@ -76,7 +76,7 @@
 		"btsleep": 10,
 		"btretry": 128,
 		"name": "pfsimg",
-		"common_kopts": "nfsmd=/opt/ibm/pfs/export pclient=notset ksdevice=bootif hostname=node0101 nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
+		"common_kopts": "pclient=notset ksdevice=bootif hostname=node0101 nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
 		"save_common_kopts": "nfsmd=/opt/ibm/pfs/export pclient=notset ksdevice=bootif hostname='$'hostname nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
 		"x86_64": 
 		{

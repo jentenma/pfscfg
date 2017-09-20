@@ -45,7 +45,7 @@
 		"btsleep": 10,
 		"btretry": 128,
 		"name": "pfsimg",
-		"common_kopts": "nfsmd=/opt/ibm/pfs/export pclient=notset ksdevice=bootif hostname=node0101 nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
+		"common_kopts": "pclient=notset ksdevice=bootif hostname=node0101 nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
 		"save_common_kopts": "nfsmd=/opt/ibm/pfs/export pclient=notset ksdevice=bootif hostname='$'hostname nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
 		"x86_64": 
 		{

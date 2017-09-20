@@ -1,0 +1,8 @@
+{
+    "interfaces": {
+        "net00": "fab0",
+        "net01": "fab1",
+        "net02": "mgt0",
+        "net03": "fbond"
+    }
+}
