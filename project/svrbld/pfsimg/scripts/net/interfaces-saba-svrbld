@@ -18,8 +18,8 @@ iface mgt0 inet static
 #
 # House Network (keep DHCP)
 #
-#auto eth0
-#iface eth0 inet dhcp
+auto eth0
+iface eth0 inet dhcp
 
 auto fab0
 iface fab0 inet manual

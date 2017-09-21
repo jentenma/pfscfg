@@ -99,26 +99,13 @@
 # Well known Fabric IPs.
 9.0.226.1 ha-master master
 
-9.0.226.144 node0101-fab0
-9.0.226.145 node0101-fab1
-
-9.0.226.146 node0102-fab0
-9.0.226.147 node0102-fab1
-
-9.0.226.148 node0103-fab0
-9.0.226.149 node0103-fab1
-
-9.0.226.150 node0104-fab0
-9.0.226.151 node0104-fab1
-
-9.0.226.152 node0105-fab0
-9.0.226.153 node0105-fab1
-
-9.0.226.154 node0106-fab0
-9.0.226.155 node0106-fab1
-
-9.0.226.156 node0107-fab0
-9.0.226.157 node0107-fab1
+9.0.226.144 node0101-fab
+9.0.226.146 node0102-fab
+9.0.226.148 node0103-fab
+9.0.226.150 node0104-fab
+9.0.226.152 node0105-fab
+9.0.226.154 node0106-fab
+9.0.226.156 node0107-fab
 
 # Fabric Switch Inband IPs.
 9.0.226.23 fabsw01a-fab 
