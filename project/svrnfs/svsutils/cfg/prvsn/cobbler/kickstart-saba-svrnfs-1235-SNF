@@ -73,6 +73,7 @@ pkgconfig
 redhat-rpm-config
 rpm-build
 rpm-sign
+wget
 %end
 
 %post --nochroot

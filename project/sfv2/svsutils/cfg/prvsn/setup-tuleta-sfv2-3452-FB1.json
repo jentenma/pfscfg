@@ -3,7 +3,7 @@
 	"prvsnr":      "cobbler",
 	"bmc":         "ipmi",
 	"fencing":     "pfs",
-        "pfs_dir":     "/opt/ibm/pfs",
+        "pfs_dir":     "/opt/ibm/appliance/platform/services",
         "pfs_info_cmd": "sys_hw_info --get-diag-info",
         "pfs_info_cmd_debug": "pfs-node-info.sh",
         "pfs_pxe_dir": "/opt/ibm/pfs/pxe_dir",

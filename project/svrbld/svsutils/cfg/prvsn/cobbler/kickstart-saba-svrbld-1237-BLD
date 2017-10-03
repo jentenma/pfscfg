@@ -73,6 +73,7 @@ pkgconfig
 redhat-rpm-config
 rpm-build
 rpm-sign
+wget
 docker-common
 policycoreutils-python
 container-selinux
