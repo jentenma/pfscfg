@@ -115,6 +115,49 @@ IPADDR=$fabip
 NETMASK=255.255.254.0
 EOF
 
+echo "Configuring nfs0 interface" >> /var/log/firstboot
+cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-nfs0
+TYPE="Ethernet"
+BOOTPROTO="static"
+DEFROUTE="no"
+PEERDNS="yes"
+PEERROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_PEERDNS="yes"
+IPV6_PEERROUTES="yes"
+IPV6_FAILURE_FATAL="no"
+NAME="nfs0"
+DEVICE="nfs0"
+IPADDR="9.0.228.2"
+NETMASK="255.255.254.0"
+EOF
+echo "Done Configuring nfs0 interface" >> /var/log/firstboot
+
+echo "Configuring nfs1 interface" >> /var/log/firstboot
+cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-nfs1
+TYPE="Ethernet"
+BOOTPROTO="static"
+DEFROUTE="no"
+PEERDNS="yes"
+PEERROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_PEERDNS="yes"
+IPV6_PEERROUTES="yes"
+IPV6_FAILURE_FATAL="no"
+NAME="nfs1"
+DEVICE="nfs1"
+IPADDR="9.0.229.2"
+NETMASK="255.255.254.0"
+EOF
+echo "Done Configuring nfs1 interface" >> /var/log/firstboot
+
+
 cat <<EOF > /tmp/fbvars.log
 $mgtname
 $mgtip

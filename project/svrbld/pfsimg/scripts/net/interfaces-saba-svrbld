@@ -15,6 +15,23 @@ iface mgt0 inet static
     address INSERT_MGT_IP_ADDRESS
     netmask 255.255.254.0
     gateway INSERT_GATEWAY_IP_ADDRESS
+
+#
+# nfs0
+#
+auto nfs0
+iface nfs0 inet static
+    address 9.0.228.2
+    netmask 255.255.255.0
+
+#
+# nfs1
+#
+auto nfs1
+iface nfs1 inet static
+    address 9.0.229.2
+    netmask 255.255.255.0
+
 #
 # House Network (keep DHCP)
 #
