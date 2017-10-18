@@ -73,6 +73,15 @@ pkgconfig
 redhat-rpm-config
 rpm-build
 rpm-sign
+device-mapper-multipath-libs
+device-mapper-multipath
+emacs-nox
+docker-ce
+docker-ce-debuginfo
+docker-selinux
+docker-machine
+docker-distribution
+git
 %end
 
 %post --nochroot
@@ -87,8 +96,12 @@ curl "http://$server/prvsn-files/mlnx-en-4.1-1.0.2.0-rhel7.3-ppc64le.tar" -o /ro
 curl "http://$server/prvsn-files/firstboot.sh" -o /root/firstboot.sh
 curl "http://$server/prvsn-files/70-persistent-net.rules" -o /etc/udev/rules.d/70-persistent-net.rules
 curl "http://$server/prvsn-files/hosts" -o /etc/hosts
+curl "http://$server/prvsn-files/multipath.conf" -o /etc/multipath.conf
+curl "http://$server/prvsn-files/emacs-setup.tar.gz" -o /root/emacs-setup.tar.gz
 echo "@reboot root /bin/bash /root/firstboot.sh" >> /etc/crontab
 /sbin/getenforce
+chkconfig NetworkManager off
+chkconfig multipathd on
 # start enable NFS server
 #echo "prvsn_export_dir = $prvsn_export_dir"
 #echo "prvsn_path = $prvsn_path"

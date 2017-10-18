@@ -11,6 +11,16 @@ echo "Updating Mellanox Driver" >> /var/log/firstboot
 mlogs=`ls /tmp/mlnx*`
 echo "Mellanox logs are in $mlogs" >> /var/log/firstboot
 
+echo "Installing emacs setup" >> /var/log/firstboot
+#/bin/cd /root/mlnx                                                                                        
+/bin/tar xzvf  /root/emacs-setup.tar.gz -C /root >> /var/log/firstboot 2>&1
+echo "Done installing emacs setup" >> /var/log/firstboot
+
+fabname=`hostname`-fab
+fabip=`cat /etc/hosts | grep $fabname | awk '{print $1}'`
+
+mgtname=`hostname`-mgt
+mgtip=`cat /etc/hosts | grep $mgtname | awk '{print $1}'`
 
 echo "Configuring Fabric interface" >> /var/log/firstboot
 cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-fab0
@@ -165,5 +175,5 @@ echo "Cleaning up" >> /var/log/firstboot
 /bin/cp /etc/crontab /tmp/crontab.fb
 /bin/rm -f /etc/crontab
 /bin/mv /etc/crontab.tmp /etc/crontab
-/bin/cp $0 /tmp/$0.fb
+/bin/cat $0 > /tmp/firstboot.save
 rm -f $0

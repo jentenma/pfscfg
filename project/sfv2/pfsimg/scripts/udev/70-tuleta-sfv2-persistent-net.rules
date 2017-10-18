@@ -28,10 +28,10 @@
 # 0002:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
 # 0002:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
 
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.0", NAME="fab0"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.1", NAME="fab2"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.2", NAME="mgt0"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.3", NAME="eth0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.0", NAME="fab0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.1", NAME="fab2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.2", NAME="mgt0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.3", NAME="eth0"
 
 #
 # Ethernet NIC - 2x10G + 2x1G
@@ -41,10 +41,10 @@ SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.3", NAME="eth0"
 # 0004:01:00.2 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
 # 0004:01:00.3 Ethernet controller: Broadcom Corporation NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
 
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.0", NAME="fab1"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.1", NAME="fab3"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.2", NAME="mgt1"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="0004:01:00.3", NAME="eth1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.0", NAME="fab1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.1", NAME="fab3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.2", NAME="mgt1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0002:01:00.3", NAME="eth1"
 
 #
 # 3 FC NICs - 2x16G FC each

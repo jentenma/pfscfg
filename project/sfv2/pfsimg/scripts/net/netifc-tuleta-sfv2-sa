@@ -1,0 +1,4 @@
+	    mgtifc=`cat /etc/hosts | grep $hostname-mgt | awk '{print $1}'`
+	    cat /etc/network/interfaces | sed -e "s/INSERT_MGTBOND_IP_ADDRESS/$mgtifc/g; \
+                                                  s/INSERT_GATEWAY_IP_ADDRESS/$gateway/g" >  /tmp/interfaces; \
+                                                  cp /tmp/interfaces /etc/network/interfaces;rm /tmp/interfaces
