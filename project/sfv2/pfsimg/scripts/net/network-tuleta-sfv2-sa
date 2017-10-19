@@ -1,2 +1,4 @@
-/sbin/ifdown eth0
+# udev rules were failing for etho intermittantly. This is for debug
+#udevadm trigger --attr-match=subsystem=net
+#sleep 1
 /sbin/ifup eth0
