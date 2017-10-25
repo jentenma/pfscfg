@@ -1,0 +1,134 @@
+{
+	"version":     1,
+	"prvsnr":      "cobbler",
+	"bmc":         "ipmi",
+	"fencing":     "pfs",
+        "pfs_dir":     "/opt/ibm/appliance/platform/services",
+        "pfs_info_cmd_for_real": "sys_hw_info --get-diag-info",
+        "pfs_info_cmd": "pfs-node-info.sh",
+        "pfs_pxe_dir": "/opt/ibm/pfs/pxe_dir",
+        "pfs_nfs_dir": "/opt/ibm/pfs/export",
+        "logging_dir": "/var/log/appliance/platform/svsutils",
+        "debug_logging_dir": "/var/log/appliance/platform/svsutils",
+	"arch":	       "ppc64le",
+	"pxe_dir":     "/var/lib/tftpboot/pxelinux.cfg",
+	"image_dir":   "/var/lib/tftpboot/images",
+	"handle":      null,
+        "svrtype":     "saba",
+        "svrcfg":      "svrbld",
+        "mtm":      "1237-BLD",
+        "webdir":      "/var/www/html",
+	"options": 
+	{
+		"cobbler": 
+		{
+			"pwrcmds": false,
+			"logging_dir": "/var/log/cobbler",
+		        "kickstart_dir": "/var/lib/cobbler/kickstarts",
+			"system_fence": "ipmilan",
+			"os_img" :
+			{
+				"profile": "rhel-7.3-serverle-ppc64le",
+				"ksfile": "na",
+			        "x86_64" :
+			        {
+			            "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+			            "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+                                },
+			       "ppc64": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+			       },		
+
+			       "ppc64le": 
+			       {
+				   "kopts": "console=ttyS0,115200 console=hvc0 console=hvc1",
+				   "kopts-post": "console=ttyS0,115200 console=hvc0 console=hvc1"
+
+			       },		
+			       "aarch64": 
+			       {
+				   "kopts": "console=tty0 console=tty1 console=ttyS0,115200 ",
+				   "kopts-post": "console=tty0 console=tty1 console=ttyS0,115200 "
+
+			       }		
+			}
+    	        },
+		"pfs": 
+		{
+			"pwrcmds": false,
+			"logging_dir": "/var/log/pfs"
+    	        },
+		"pdebug": 
+		{
+			"pwrcmds": false,
+			"logging_dir": "/var/log/pfs"
+    	        },
+		"ossleep": 5,
+		"osretry": 240,
+		"interactive": false,
+		"use_serial_port": true,
+		"hostttydevice": "/dev/ttyS0"
+	},
+	"pxe_img": 
+	{
+		"btsleep": 10,
+		"btretry": 128,
+		"name": "pfsimg",
+		"common_kopts": "pclient=notset ksdevice=bootif hostname=node0101 nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
+		"save_common_kopts": "nfsmd=/opt/ibm/pfs/export pclient=notset ksdevice=bootif hostname='$'hostname nfshost='$'server serverip='$'server root=/dev/rd/o kssendmac",
+		"x86_64": 
+		{
+			"kernel": "bzImage",
+			"initrd": "initramfs_data.cpio.xz",
+			"kopts": "nfsmd=/opt/ibm/pfs/export",
+			"ksfile": "pfs.ks"
+		},		
+		"ppc64": 
+		{
+			"kernel": "/home/cobbler/staging/pfs-pxe-ppc64/vmlinux",
+			"initrd": "/home/cobbler/staging/pfs-pxe-ppc64/initramfs_data.cpio.xz",
+			"kopts": "console=hvc0 console=hvc1",
+			"ksfile": "/var/lib/cobbler/kickstarts/pfs.ks"
+		},		
+		"ppc64le": 
+		{
+			"kernel": "/home/cobbler/staging/pfs-pxe-ppc64le/vmlinux",
+			"initrd": "/home/cobbler/staging/pfs-pxe-ppc64le/initramfs_data.cpio.xz",
+			"kopts": "apself=yes console=hvc0 console=hvc1",
+			"ksfile": "/var/lib/cobbler/kickstarts/pfs.ks"
+		},		
+		"aarch64": 
+		{
+			"kernel": "vmlinux",
+			"initrd": "initramfs_data.cpio.xz",
+			"kopts": "nfsmd=/opt/ibm/pfs/export",
+			"ksfile": "pfs.ks"
+		}		
+	},
+	"supported_bmc":
+	{
+		"ipmi": true,
+		"imm": false,
+		"drac": false
+	},
+	"supported_fencing":
+	{
+		"pfs": true,
+		"ipdu": false,
+		"cobbler": true,
+		"ipdu2": false
+	},
+	"supported_provisioners":
+	{
+		"cobbler": true,
+		"foreman": false,
+		"maas": false,
+	        "xcat": false,
+	        "rudder": false,
+		"pdebug": true,
+		"pfs": true
+	}
+}
+

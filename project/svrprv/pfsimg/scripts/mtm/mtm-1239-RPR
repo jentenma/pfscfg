@@ -1,0 +1,25 @@
+
+	hostname=`hostname`
+
+	rack=`1`
+	node=`1`
+
+	echo "rack: $rack" >> $pfsetcdir/diag.conf
+	echo "node: $node" >> $pfsetcdir/diag.conf
+
+        # 1239-RPR)
+                echo "totalnodes: 1" >> $pfsetcdir/diag.conf
+                echo "nodesperrack: 1" >> $pfsetcdir/diag.conf
+                echo "increment: 1" >> $pfsetcdir/diag.conf
+                echo "increment: 1" >> $pfsetcdir/sdc.conf
+                myindex=1
+                echo "myindex: $myindex" >> $pfsetcdir/diag.conf
+                echo "myindex: $myindex" >> $pfsetcdir/sdc.conf
+                hoststorage="na"
+                echo "hoststorage: $hoststorage" >> $pfsetcdir/sdc.conf
+
+	basename=`hostname`
+
+	nodelist="${hostname}"
+	echo "nodelist: $nodelist" >> $pfsetcdir/diag.conf
+	echo "nodelist: $nodelist" >> $pfsetcdir/sdc.conf

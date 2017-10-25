@@ -1,0 +1,6 @@
+{
+    "interfaces": {
+        "net00": "mgt0",
+        "net01": "eth1"
+    }
+}

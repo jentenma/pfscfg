@@ -1,0 +1,15 @@
+{
+    "interfaces": {
+        "net00": "mgt0",
+        "net01": "eth1"
+    },
+    "meminfo" : {
+        "fru_ids": ["DIMM_A2","DIMM_A3","DIMM_A5","DIMM_A6",
+                    "DIMM_B2","DIMM_B3","DIMM_B5","DIMM_B6"],
+        "mfg_list": ["00CE00B380CE"],
+        "mfg_info": { 
+            "00CE00B380CE": { "na": { "pn":"M392B1K73CM0-YF8","version":"na" }}
+        }
+    }
+
+}
