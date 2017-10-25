@@ -41,75 +41,13 @@
 9.0.231.19 fsp0104b fsp0104b-mgt
 9.0.224.20 fsp0105a fsp0105a-mgt 
 9.0.231.20 fsp0105b fsp0105b-mgt
-9.0.224.21 fsp0106a fsp0106a-mgt 
-9.0.231.21 fsp0106b fsp0106b-mgt
-9.0.224.22 fsp0107a fsp0107a-mgt 
-9.0.231.22 fsp0107b fsp0107b-mgt
 
 # Mgt IPs for Linux nodes.
-9.0.224.23 node0101 node0101-mgt node0101.apdomain.ibm.com  
-9.0.224.24 node0102 node0102-mgt node0102.apdomain.ibm.com  
-9.0.224.25 node0103 node0103-mgt node0103.apdomain.ibm.com  
-9.0.224.26 node0104 node0104-mgt node0104.apdomain.ibm.com  
-9.0.224.27 node0105 node0105-mgt node0105.apdomain.ibm.com  
-9.0.224.28 node0106 node0106-mgt node0106.apdomain.ibm.com  
-9.0.224.29 node0107 node0107-mgt node0107.apdomain.ibm.com  
-
-# Mgt IPs for Remote Power Controllers.
-9.0.224.30 rpc0101 rpc0101-mgt 
-9.0.224.31 rpc0102 rpc0102-mgt 
-9.0.224.32 rpc0103 rpc0103-mgt 
-9.0.224.33 rpc0104 rpc0104-mgt 
-
-# Mgt IPs of Fabric Leaf Switches.
-9.0.224.34 fabsw01a fabsw01a-mgt
-9.0.224.35 fabsw01b fabsw01b-mgt
-
-# Mgt IP of FC Switches.
-9.0.224.36 fcsw01a fcsw01a-mgt
-9.0.224.37 fcsw01b fcsw01b-mgt
-
-# Mgt IP of a flash storage node (fsn) - such as TMS 900 Flash Arrays.
-9.0.224.38 fsn0101 fsn0101-mgt 
-9.0.224.39 fsn0102 fsn0102-mgt 
-9.0.224.40 fsn0103 fsn0103-mgt 
-
-# Mgt IP of each canister of a flash storage node (fsn) - such as TMS 900 Flash Arrays.
-9.0.224.41 fsn0101a fsn0101a-mgt
-9.0.224.42 fsn0101b fsn0101b-mgt
-9.0.224.43 fsn0102a fsn0102a-mgt
-9.0.224.44 fsn0102b fsn0102b-mgt
-9.0.224.45 fsn0103a fsn0103a-mgt
-9.0.224.46 fsn0103b fsn0103b-mgt
-
-# Mgt virtual-IP for each pair of Mlnx Fabric switches.
-9.0.224.47 fabsw01vip fabsw01vip-mgt 
-
-# In-band Mgt IP for each Mgt switch.
-9.0.224.48 mgtsw01a mgtsw01a-mgt
-9.0.224.49 mgtsw01b mgtsw01b-mgt
-
-# Mgt IP of terminal servers.
-9.0.224.50 ts01 ts01-mgt 
-
-#
-# Fabric Network: 9.0.226.0
-# Fabric netmask: 255.255.254.0
-
-# Well known Fabric IPs.
-9.0.226.1 ha-master master
-
-9.0.226.144 node0101-fab
-9.0.226.146 node0102-fab
-9.0.226.148 node0103-fab
-9.0.226.150 node0104-fab
-9.0.226.152 node0105-fab
-9.0.226.154 node0106-fab
-9.0.226.156 node0107-fab
-
-# Fabric Switch Inband IPs.
-9.0.226.23 fabsw01a-fab 
-9.0.226.24 fabsw01b-fab 
+9.0.224.23 svrprv-a  
+9.0.224.24 svrprv-b  
+9.0.224.25 svrprv-c  
+9.0.224.26 svrprv-d  
+9.0.224.27 svrprv-e  
 
 
 # sfv2: END reserved internal IP addresses.
