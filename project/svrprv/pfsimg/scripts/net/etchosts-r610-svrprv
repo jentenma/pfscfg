@@ -31,16 +31,11 @@
 9.0.224.3 service-laptop
 
 # Mgt IPs for FSPs.
-9.0.224.16 fsp0101a fsp0101a-mgt 
-9.0.231.16 fsp0101b fsp0101b-mgt
-9.0.224.17 fsp0102a fsp0102a-mgt 
-9.0.231.17 fsp0102b fsp0102b-mgt
-9.0.224.18 fsp0103a fsp0103a-mgt 
-9.0.231.18 fsp0103b fsp0103b-mgt
-9.0.224.19 fsp0104a fsp0104a-mgt 
-9.0.231.19 fsp0104b fsp0104b-mgt
-9.0.224.20 fsp0105a fsp0105a-mgt 
-9.0.231.20 fsp0105b fsp0105b-mgt
+9.0.224.16 fsp-svrprv-a  
+9.0.224.17 fsp-svrprv-b  
+9.0.224.18 fsp-svrprv-c  
+9.0.224.19 fsp-svrprv-d  
+9.0.224.20 fsp-svrprv-e  
 
 # Mgt IPs for Linux nodes.
 9.0.224.23 svrprv-a  
