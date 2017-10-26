@@ -1,0 +1,30 @@
+#!/bin/sh
+
+case "$1" in
+
+    start)
+        cat /proc/cmdline | grep "svrtype=tuleta" >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		echo "Tuleta server only" 1>&2
+		exit 0
+	fi
+
+	updateval='/ibm,opal/consoles/serial@1'
+	updatecmd="petitboot,console=$updateval"
+	currentval=`/usr/sbin/nvram --print-config="petitboot,console"`
+
+	if [ $? -ne 0 ] || [ "$currentval" != "$updateval" ]; then
+		echo -n "Updating nvram to enable hvc1 serial port ..."
+		/usr/sbin/nvram --update-config $updatecmd
+	fi
+	echo "Done"
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+esac
+
+exit 0
