@@ -1,4 +1,4 @@
-	    mgt=`cat /etc/hosts | grep $hostname | awk '{print $1}'`
+	    mgt=`cat /etc/hosts | grep $hostname | grep -v fsp | awk '{print $1}'`
 	    cat /etc/network/interfaces | sed -e "s/INSERT_MGT_IP_ADDRESS/$mgt/g; \
-                                                  s/INSERT_GATEWAY_IP_ADDRESS/$gateway/g" > /tmp/interfaces
+                                                  s/INSERT_GATEWAY_IP_ADDRESS/$gateway/g" > /tmp/interfaces; \
                                                   cp /tmp/interfaces /etc/network/interfaces;rm /tmp/interfaces

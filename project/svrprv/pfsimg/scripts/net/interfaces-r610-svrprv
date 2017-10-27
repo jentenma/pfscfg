@@ -21,6 +21,6 @@ iface mgt0 inet static
 #
 auto eth1
 iface eth1 inet static
-    address 9.0.224.2
+    address 9.0.226.26
     netmask 255.255.254.0
 
